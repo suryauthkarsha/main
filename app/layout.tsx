@@ -16,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <script dangerouslySetInnerHTML={{ __html: "window.addEventListener('load', () => { const scrollWidth = document.documentElement.scrollWidth; const clientWidth = document.documentElement.clientWidth; if (scrollWidth > clientWidth) { console.error('Validation Error: Horizontal overflow detected. scrollWidth (' + scrollWidth + ') > clientWidth (' + clientWidth + ')'); } });" }} />
+      </body>
     </html>
   );
 }
